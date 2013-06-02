@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? %>
+  <h1>Logged in</h1>
+  <%= current_user.email %>
+  <%= link_to 'logout', destroy_user_session_path, :method => :delete %>
+  <p><%= link_to 'posts', posts_path %></p>
+<% else %>
+  <h1>Welcom</h1>
+  <ul>
+    <li><%= link_to 'sign in', new_user_session_path %>
+    <li><%= link_to 'sign up', new_user_registration_path %>
+<% end %>

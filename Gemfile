@@ -34,5 +34,9 @@ gem 'unicorn'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+gem 'devise'
+
 # To use debugger
 # gem 'debugger'
+
+gem 'cancan'
