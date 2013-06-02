@@ -4,8 +4,12 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    can :manage, Post do |post|
-      post.user == user
+    if user.has_role?(:root)
+       can :manage, :all 
+    else
+      can :manage, Post do |post|
+        post.user == user || user.has_role?(:admin)
+      end
     end
 
     # Define abilities for the passed in user here. For example:

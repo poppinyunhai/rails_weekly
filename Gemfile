@@ -40,3 +40,4 @@ gem 'devise'
 # gem 'debugger'
 
 gem 'cancan'
+gem 'role_model'
